@@ -1,0 +1,344 @@
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+/* ........................Nav -1 ....................... */
+
+
+.Nav-1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    background-color: rgb(19, 25, 33);
+    width: 100vw;
+    height: 10vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#logo {
+    background-image: url('/Resources/Photos/pngkey.com-amazon-logo-png-4686005.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-bottom: 10px; 
+    margin-left: 10px; 
+    max-width: 4rem;
+}    
+
+.flex-items {
+    display: flex;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 10px 0 ;
+    justify-content: center; 
+    align-items: center;
+    overflow: hidden;
+}
+
+.Nav-1-items-1 {
+    display: flex;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 10px 10px ;
+    justify-content: center; 
+    align-items: center;
+    font-size: 24px;
+}
+
+.flex-items:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+
+/* .................Nav-1 sizing ............... */
+
+
+.flex-items:nth-child(1) {
+    display: block;
+    flex-grow: 0.10;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    font-size: 32px;
+    font-weight: bold;
+    order: 0;
+    @font-face {
+        font-family: 's';
+        src: url('C:\Users\liron\Desktop\bootcamp\Weekend asgin 2\Amazon\Resources\Fonts/ITC Officina Sans Regular.ttf') format('truetype');
+    }
+}
+
+.flex-items:nth-child(2) {
+    display: block;
+    flex-grow: 0.05;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+.flex-items:nth-child(3) {
+    display: block;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+    flex-basis: auto;
+    justify-content: center; 
+    align-items: center;   
+    order: 0;
+    border: none;
+}
+.flex-items:nth-child(4) {
+    display: block;
+    flex-grow: 0.1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+.flex-items:nth-child(5) {
+    display: block;
+    flex-grow: 0.11;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+.flex-items:nth-child(6) {
+    display: flex;
+    flex-grow: 0.05;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+.flex-items:nth-child(7) {
+    display: block;
+    flex-grow: 0.07;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+
+
+/* ................Nav-1 Search-bar.............. */
+
+
+input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    padding: 0.9rem;
+    height: 100%;
+}
+
+.nav-1-btn {
+    padding: 0.625rem;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-1-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.nav-1-btn i {
+    font-size: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+.nav-1-select {
+    border: none;
+    background-color: #f0f0f0;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    padding: 0 10px;
+    width: 150px; 
+}
+
+
+.search-dropdown {
+    border: none;
+    padding: 0.9rem;
+    height: 100%;
+    background-color: #f0f0f0; 
+    border-radius: 5px 0 0 5px; 
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    padding: 0.9rem;
+    border-left: 1px solid #ccc; 
+    height: 100%;
+}
+
+.nav-1-btn {
+    padding: 0.625rem;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 100%;
+}
+
+.search-bar button {
+    background-color: rgb(254,189,105);
+    border: none;
+    padding: 1rem;
+}
+
+.search-bar button:hover {
+    background-color: rgb(243,168,71);
+}
+
+
+/* .......................................NAV 2........................................ */
+
+
+.Nav-2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(35, 47, 62);
+    font-family:Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 7vh;
+}
+
+.flex-items-2 {
+    color: rgb(255, 255, 255);
+    padding: 10px 10px ;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-items-2:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+
+/* .......................................NAV 3........................................ */
+
+
+.Nav-3 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgb(51, 51, 51);
+    background-color: rgb(250, 250, 250);
+    width: 100vw;
+    height: 6vh;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.flex-items-3 button {
+    background-color: rgb(250, 250, 250);
+    border: none; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; 
+    cursor: pointer; 
+    color: rgb(51, 51, 51);
+}
+
+.flex-items-3 button:hover {
+    color: rgb(228,121,17);
+}
+
+.flex-items-3 button i {
+     color: rgb(160, 160, 160); 
+     margin-left: 5px;
+     font-size: 0.75em; 
+     vertical-align: text-top; 
+}
+    
+
+    .Nav-3 .flex-items-3 .Action {
+     font-weight: bold;
+}
+
+
+ /* .......................................NAV 4........................................ */
+
+.Nav-4 a {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(246, 247, 248);
+    border: 1px solid rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none; 
+}
+
+.Nav-4-item-1, .Nav-4-item-3, .Nav-4-item-5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 1; 
+}
+
+.Nav-4-item-2 {
+    flex: 2; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.Nav-4-item-1 img, .Nav-4-item-3 img, .Nav-4-item-5 img {
+    max-height: 70%;
+    object-fit: contain;
+}
+
+.Nav-4-item-2 img {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+
+/* .................................................... */
+
+
+    .Nav-1, .Nav-2, .Nav-3, .Nav-4 {
+        width: 100%;
+      }
+    
+    
