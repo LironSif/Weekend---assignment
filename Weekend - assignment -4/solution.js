@@ -1,6 +1,8 @@
 const carMarket =  require("./obj")
 
-// ...........................................................................................
+
+// .......................................Search for a car agency by its name or ID....................................................
+
 
 searchAgency = function(inp) {
     const result = carMarket.sellers.find(seller => 
@@ -14,7 +16,9 @@ searchAgency = function(inp) {
 console.log(searchAgency("Best Deal")); 
 console.log(searchAgency("26_IPfHU1"));  
 
-// ...........................................................................................
+
+// // ...........................................Retrieve all agencies' names.................................................
+
 
 onlineAgencys =function () {
     const isOnline =  carMarket.sellers.map(name => name.agencyName) ;
@@ -23,7 +27,9 @@ onlineAgencys =function () {
 }
  console.log(onlineAgencys())
 
-// ...........................................................................................
+
+// // .................................Add a new car to an agency's inventory..........................................................
+
 
 addCar = function (agencyName, carNumber) {
     let agency = carMarket.sellers.find(seller => 
@@ -46,8 +52,11 @@ addCar = function (agencyName, carNumber) {
     return 'car was added';
 }
 
-// console.log(addCar('Best Deal', 'WIh0U')); 
-// ...........................................................................................
+console.log(addCar('Best Deal', 'WIh0U')); 
+
+
+// .........................................Remove a car from an agency's inventory:...........................................................
+
 
 removeCar = function (agencyName, carNumber) {
 
@@ -69,93 +78,71 @@ removeCar = function (agencyName, carNumber) {
                 return 'car not found'
             }
     
-            // console.log(removeCar('Best Deal', 'AZJZ4')); 
+            console.log(removeCar('Best Deal', 'AZJZ4')); 
      
-// ...........................................................................................
 
-let agencyNames = [];
-agencyNames.push(...onlineAgencys()); 
-let operations = [searchAgency, onlineAgencys, addCar, removeCar];
 
-cashRegister = function (agency, operation, carNumber) {
- 
-    let agencyName = carMarket.sellers.find(seller => 
-    seller.agencyName.toLowerCase() === agency.toLowerCase())
+// // ........................................Change the cash or credit of an agency...................................................
 
-    if (!agencyName) {
-        console.log('Agency not found:', agency);
+
+
+function updateAgencyFinance(carMarket, agencyId, newCash, newCredit) {
+    const agency = carMarket.sellers.find(seller => seller.agencyId === agencyId);
+    if (!agency) return 'Agency not found';
+    if (newCash !== undefined) agency.cash = newCash;
+    if (newCredit !== undefined) agency.credit = newCredit;
+  }
+
+
+// .................................Update the price of a specific car in an agency ........................................................
+
+
+
+updateCarPrice = function (agency, carId, priceToChange) {
+    let price = parseInt(priceToChange);
+    let pickedAgency = carMarket.sellers.find(seller => seller.agencyName === agency);
+    
+    if (!pickedAgency) {
+        console.error('Agency not found');
         return;
     }
-
-    let a = agencyName.cash;
-    console.log(a)
     
-    let Customer = carMarket.customers.find(customer => 
-        customer.cars.find(car => car.carNumber === carNumber));
-
-    let car;
-    if (Customer) {
-        car = Customer.cars.find(car => car.carNumber === carNumber);
+    let pickedBrand = pickedAgency.cars.find(brand => brand.models.some(car => car.carNumber === carId));
+    
+    if (!pickedBrand) {
+        console.error('Brand not found');
+        return;
     }
-
-    if (!car) {
-        console.log('Car not found:', carNumber);
+    
+    let pickedCar = pickedBrand.models.find(car => car.carNumber === carId);
+    
+    if (!pickedCar) {
+        console.error('Car not found');
+        return;
     }
+    
+    pickedCar.price = price;
 
-    let b = car.price;
-    console.log(b)
-
-    if (operation === removeCar) {
-        return a + b; 
-    } 
-    else if (operation === addCar) {
-        return a - b;
-    }
-    else {
-        console.error("Invalid operation provided");
-        return a;
-    }
+    console.log(pickedCar);
+    return
 }
-// console.log(cashRegister(agencyNames[0], operations[2], "16da1"));
+console.log(updateCarPrice("Best Deal","AZJZ4", '500'))
 
 
-// ...........................................................................................
-
-function updateCarPrice(agencyName, carNumber, newPrice) {
-    const agency = this.sellers.find(seller => seller.agencyName === agencyName);
-    
-    if (!agency) {
-        console.log("Agency not found!");
-        return;
-    }
-
-    let grabCar;
-    for (let car of agency.cars) {
-        for (let model of car.models) {
-            if (model.carNumber === carNumber) {
-                grabCar = model;
-                break;
-            }
-        }
-        if (grabCar) break;
-    }
-    
-    if (!grabCar) {
-        console.log("Car not found in the agency!");
-        return;
-    }
-
-    grabCar.price = newPrice;
-    console.log(`Updated car price for car number (${grabCar.carNumber}) to : ${newPrice} `);
-}
-
-carMarket.updateCarPrice = updateCarPrice;
-
-carMarket.updateCarPrice("Best Deal", "AZJZ4", 150000);
+// ..............................Calculate and return the total revenue for a specific agency.............................................
 
 
+function getTotalAgencyRevenue(carMarket, agencyId) {
+    const agency = carMarket.sellers.find(seller => seller.agencyId === agencyId);
+    if (!agency) return 'Agency not found';
+    let totalRevenue = 0;
+    agency.cars.forEach(brand => {
+      brand.models.forEach(model => {
+        totalRevenue += model.price;
+      });
+    });
+    return totalRevenue;
+  }
+  
 
-// function updateCarPrice() {
-//     return this.customers.map(customer => customer.name);}
-// carMarket.updateCarPrice = updateCarPrice;
-// console.log(carMarket.updateCarPrice());
+  
